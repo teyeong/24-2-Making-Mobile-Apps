@@ -15,17 +15,21 @@ const Lab1b = () => {
 
   const run_everysec = () => {
     const now = new Date();
+    const hour = now.getHours();
     setHh(now.getHours().toString().padStart(2, "0"));
     setMm(now.getMinutes().toString().padStart(2, "0"));
     setSs(now.getSeconds().toString().padStart(2, "0"));
 
-    if (now.getHours() > 12) {
+    if (hour >= 12) {
       setAp("pm");
-      setHh((now.getHours() - 12).toString().padStart(2, "0"));
-    } else if (now.getHours() < 12) {
-      setAp("am");
+      if (hour != 12) {
+        setHh((hour - 12).toString().padStart(2, "0"));
+      }
     } else {
-      setAp("pm");
+      setAp("am");
+      if (hour == 0) {
+        setHh("12");
+      }
     }
   };
 
