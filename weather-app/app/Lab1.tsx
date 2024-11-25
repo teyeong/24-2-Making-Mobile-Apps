@@ -1,4 +1,3 @@
-// import { API_URL } from "@env";
 import { useEffect, useState } from "react";
 import { Text, View } from "react-native";
 
